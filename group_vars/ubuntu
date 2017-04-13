@@ -1,0 +1,7 @@
+---
+
+# ubuntu apt source ip
+apt_source_url: 10.2.13.150
+
+# ubuntu version
+ubuntu_version: trusty

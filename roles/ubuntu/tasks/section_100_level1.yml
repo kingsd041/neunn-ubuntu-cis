@@ -1,0 +1,25 @@
+---
+
+  - name: 100.1.1 set history  time stamp
+    blockinfile:
+      path: /etc/profile
+      block: |
+        export HISTTIMEFORMAT="%F %T `whoami` "
+        export HISTSIZE=1000
+    tags:
+      - section100
+      - section100.1
+      - section100.1.1
+
+  - name: 100.1.2 Modify the DNS
+    lineinfile:
+      path: /etc/network/interfaces
+      state: present
+      regexp: '^dns-nameservers'
+      insertafter: '^gateway'
+      line: 'dns-nameservers 10.20.0.131 10.20.0.132'
+      
+    tags:
+      - section100
+      - section100.1
+      - section100.1.2

@@ -142,7 +142,7 @@
 
   - name: 7.2.7.1 Enable RFC-recommended Source Route Validation (Scored)
     sysctl: >
-      name=net.ipv4.conf.all.rp_filter
+      name={{net_ipv4_conf_all_rp_filter}}
       value=1
       state=present
     tags:
@@ -152,7 +152,7 @@
 
   - name: 7.2.7.2 Enable RFC-recommended Source Route Validation (Scored)
     sysctl: >
-      name=net.ipv4.conf.default.rp_filter
+      name={{net_ipv4_conf_default_rp_filter}}
       value=1
       state=present
     tags:

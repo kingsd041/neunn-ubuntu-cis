@@ -7,7 +7,7 @@
 ## 使用
 
 - 编辑hosts文件，设置ubuntu组的ansible_ssh_host、ansible_ssh_user、ansible_ssh_pass。当然你也可以在其他地方设置。
-```bash
+```
 [ubuntu]
 10.2.250.103 ansible_ssh_host=10.2.250.103 ansible_ssh_user=root ansible_ssh_pass=xxx
 ```
@@ -16,4 +16,4 @@
 
 ## 变量说明
 
-- modify_root_password: False	如果设置为True，就会修改操作系统密码。密码为root_password设置的值。
+- modify_root_password: False --如果设置为True，就会修改操作系统密码。密码为root_password设置的值。

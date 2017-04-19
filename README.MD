@@ -3,6 +3,7 @@
 ## 先决条件
 
 这个ansible playbook主要是为了强化Ubuntu14.04系统，应该也适用于debian 8 和ubuntu16.04，但是我没测试。ansible最低版本为2.3.
+
 ansible_ssh_user一定要设置成非root用户，因为执行过程中会禁用root登陆.
 
 ## 使用

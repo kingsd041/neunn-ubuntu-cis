@@ -142,8 +142,8 @@
 
   - name: 7.2.7.1 Enable RFC-recommended Source Route Validation (Scored)
     sysctl: >
-      name={{net_ipv4_conf_all_rp_filter}}
-      value=1
+      name=net.ipv4.conf.all.rp_filter
+      value={{ net_ipv4_conf_all_rp_filter }}
       state=present
     tags:
       - section7
@@ -152,8 +152,8 @@
 
   - name: 7.2.7.2 Enable RFC-recommended Source Route Validation (Scored)
     sysctl: >
-      name={{net_ipv4_conf_default_rp_filter}}
-      value=1
+      name=net.ipv4.conf.default.rp_filter
+      value={{net_ipv4_conf_default_rp_filter}}
       state=present
     tags:
       - section7
@@ -335,3 +335,12 @@
     tags:
       - section7
       - section7.7
+
+#  - name:  7.7.4 ufw allow 22/tcp
+#    ufw:
+#      rule: allow
+#      port: '22'
+#    when: activate_ufw
+#    tags:
+#      - section7
+#      - section7.7

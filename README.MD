@@ -3,20 +3,23 @@
 ## 先决条件
 
 这个ansible playbook主要是为了强化Ubuntu14.04系统，应该也适用于debian 8 和ubuntu16.04，但是我没测试。ansible最低版本为2.3.
+ansible_ssh_user一定要设置成非root用户，因为执行过程中会禁用root登陆.
 
 ## 使用
 
-- 编辑hosts文件，设置ubuntu组的ansible_ssh_host、ansible_ssh_user、ansible_ssh_pass。当然你也可以在其他地方设置。
+- 编辑hosts文件，设置ubuntu组的ansible_ssh_host、ansible_ssh_user。当然你也可以在其他地方设置。
 ```
 [ubuntu]
-10.2.250.103 ansible_ssh_host=10.2.250.103 ansible_ssh_user=root ansible_ssh_pass=xxx
+10.2.250.103 ansible_ssh_host=10.2.250.103 ansible_ssh_user=ubuntu
 ```
 - 编辑group_vars/all文件，设置全局变量。
 - 编辑group_vars/ubuntu文件，设置ubuntu组变量。
 
 执行命令：
 ```
-ansible-playbook -i hosts site.yml 
+ansible-playbook -i hosts site.yml --ask-become-pass -k
+SSH password: 	# 输入ansible_ssh_user密码
+SUDO password[defaults to SSH password]:   # 输入sudo密码
 ```
 
 ## 变量说明
@@ -29,3 +32,7 @@ ansible-playbook -i hosts site.yml
 
 ## 其他
 执行后有一些是检查用的，最好将执行日志保存，然后仔细查阅。
+```
+脚本执行后，会禁用ssh的root登录，所以执行前请先设置好非root用户密码。
+```
+因为本次安全加固未涉及到ubuntu用户的密码修改，所以请事先设置好复杂密码。

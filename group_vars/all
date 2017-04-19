@@ -14,7 +14,7 @@ apt_cache_valid_time: 3600
 # Section 03
 
 # Modify the root password
-modify_root_password: False
+modify_root_password: True
 
 # Default root password: root
 root_password: $6$5Mklo2YKvXOM50Zj$E8w4oiykpG9WiElxwHLx85rFFFG0z/lu0vp0wiU0SAnMnw0CmYhmArxvLxBjWQ6XVHv88XQyfpTjX4CPH89hf1

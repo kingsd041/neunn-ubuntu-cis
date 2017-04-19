@@ -124,16 +124,29 @@
 #defined by denied= in the pam_tally2.so module, the user can be unlocked by issuing the command
 #/sbin/pam_tally2 -u username --reset
 #This command sets the failed count to 0, effectively unlocking the user
-  - name: 9.2.2 Set Lockout for Failed Password Attempts (Not Scored)
+#  - name: 9.2.2 Set Lockout for Failed Password Attempts (Not Scored)
+#    lineinfile: >
+#        dest='/etc/pam.d/login'
+#        regexp='pam_tally2'
+#        line="auth required pam_tally2.so onerr=fail audit silent deny=10 unlock_time=900"
+#        state=present
+#    tags:
+#      - section9
+#      - section9.2
+#      - section9.2.2
+
+  - name: 9.2.2-1 Set Lockout for Failed Password Attempts (Not Scored)
     lineinfile: >
-        dest='/etc/pam.d/login'
-        regexp='pam_tally2'
-        line="auth required pam_tally2.so onerr=fail audit silent deny=5 unlock_time=900"
+        dest='/etc/pam.d/common-auth'
+        regexp='^# pam-auth-update'
+        insertbefore="^# pam-auth-update"
+        line="auth required pam_tally2.so deny=6 onerr=fail no_magic_root unlock_time=120"
         state=present
     tags:
       - section9
       - section9.2
-      - section9.2.2
+      - section9.2.2-1
+
 
   - name: 9.2.3 Limit Password Reuse (Scored)
     lineinfile: >

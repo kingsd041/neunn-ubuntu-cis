@@ -8,14 +8,15 @@
       - section1.1.1
 
   - name: 1.1.2 Install Updates, Patches and Additional Security Software (Not Scored)
-    apt: update_cache=yes cache_valid_time={{apt_cache_valid_time}}
+    apt: update_cache=yes  cache_valid_time={{apt_cache_valid_time}}
     tags:
       - section1
       - section1.1
       - section1.1.2
 
   - name: 1.1.3 Install Updates, Patches and Additional Security Software (Not Scored)
-    apt: upgrade=yes
+#    apt: upgrade=yes
+    shell: apt-get update -y
     when: apt_upgrade == True
     tags:
       - section1

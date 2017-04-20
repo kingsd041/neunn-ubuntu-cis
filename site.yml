@@ -1,6 +1,6 @@
 ---
 - hosts: ubuntu
-  remote_user: root
+  remote_user: ubuntu
   become: true
   become_method: sudo
   become_user: root

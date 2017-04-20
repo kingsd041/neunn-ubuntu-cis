@@ -336,11 +336,26 @@
       - section7
       - section7.7
 
-#  - name:  7.7.4 ufw allow 22/tcp
-#    ufw:
-#      rule: allow
-#      port: '22'
-#    when: activate_ufw
-#    tags:
-#      - section7
-#      - section7.7
+ # - name:  7.7.4 ufw allow 22/tcp
+ #   ufw:
+ #     rule: allow
+ #     port: '22'
+ #   when: activate_ufw
+ #   tags:
+ #     - section7
+ #     - section7.7.4
+  - name:  7.7.4 enable
+    ufw: state=enabled
+    when: activate_ufw
+    tags:
+      - section7
+      - section7.7.4
+
+  - name:  7.7.5 ufw allow 22/tcp
+    ufw:
+      rule: allow
+      port: '22'
+    when: activate_ufw
+    tags:
+      - section7
+      - section7.7.4

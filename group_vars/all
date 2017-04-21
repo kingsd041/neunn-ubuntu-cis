@@ -39,7 +39,8 @@ enable_aslr: True
 remove_xserver: True
 
 # Default ntp server for when none-already exists.
-ntp_server: 0.fr.pool.ntp.org
+#ntp_server: 0.fr.pool.ntp.org
+ntp_server: 10.2.254.254
 
 
 # Section 07

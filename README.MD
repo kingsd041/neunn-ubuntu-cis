@@ -1,26 +1,32 @@
 # CIS for Ubuntu 14.04
 
-## 先决条件
+## 说明
 
-这个ansible playbook主要是为了强化Ubuntu14.04系统，应该也适用于debian 8 和ubuntu16.04，但是我没测试。ansible最低版本为2.3.
+1. 这个ansible playbook主要是为了强化Ubuntu14.04系统，应该也适用于debian 8 和ubuntu16.04，但是我没测试。
+2. 执行过程中会自动设置root和ubuntu用户的密码，密码设置参见变量说明章节。
+3. 执行完成完成完成后，会禁用root通过ssh登录。只能通过普通用户登录。
+4. 这个playbook是参见github上[cis-ubuntu-ansible](https://github.com/awailly/cis-ubuntu-ansible.git)
 
-ansible_ssh_user一定要设置成非root用户，因为执行过程中会禁用root登陆.
+![http://media.giphy.com/media/7U1XfwZ94okRW/giphy.gif](http://media.giphy.com/media/7U1XfwZ94okRW/giphy.gif)
+
+## 版本
+
+Aansible：2.3
 
 ## 使用
 
 - 编辑hosts文件，设置ubuntu组的ansible_ssh_host、ansible_ssh_user。当然你也可以在其他地方设置。
 ```
 [ubuntu]
-10.2.250.103 ansible_ssh_host=10.2.250.103 ansible_ssh_user=ubuntu
+10.2.250.103 ansible_ssh_host=10.2.250.103 ansible_ssh_user=root
 ```
 - 编辑group_vars/all文件，设置全局变量。
 - 编辑group_vars/ubuntu文件，设置ubuntu组变量。
 
 执行命令：
 ```
-ansible-playbook -i hosts site.yml --ask-become-pass -k
+ansible-playbook -i hosts site.yml -k
 SSH password: 	# 输入ansible_ssh_user密码
-SUDO password[defaults to SSH password]:   # 输入sudo密码
 ```
 
 ## 变量说明

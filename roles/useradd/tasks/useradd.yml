@@ -1,0 +1,7 @@
+---
+
+  - name: user add ubuntu and set password.
+    user:
+      name: ubuntu
+      password: "{{ubuntu_password}}"
+      shell: /bin/bash

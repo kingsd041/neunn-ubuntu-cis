@@ -1,6 +1,9 @@
 # Please enter following parameters before system hardening
 
+# role useradd
+# Default ubuntu password: Neunn@123
 
+ubuntu_password: $6$GUoVql1jxb7t$mMS9i1dsTTx9yAa8AozOuiTb6CjBis7HDccG0nPUvqOaNNNRltQUWMz/YY7deNcBA8igEZgbpUoEX2CZ06lmM/
 
 # Section 01
 
@@ -16,8 +19,8 @@ apt_cache_valid_time: 3600
 # Modify the root password
 modify_root_password: True
 
-# Default root password: root
-root_password: $6$5Mklo2YKvXOM50Zj$E8w4oiykpG9WiElxwHLx85rFFFG0z/lu0vp0wiU0SAnMnw0CmYhmArxvLxBjWQ6XVHv88XQyfpTjX4CPH89hf1
+# Default root password: Neunn@123
+root_password: $6$GUoVql1jxb7t$mMS9i1dsTTx9yAa8AozOuiTb6CjBis7HDccG0nPUvqOaNNNRltQUWMz/YY7deNcBA8igEZgbpUoEX2CZ06lmM/
 
 # Grub Bootloader PBKDF2 Password (use grub-mkpasswd-pbkdf2 to generate) 
 # Default password: Neunn@123

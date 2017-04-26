@@ -1,2 +1,2 @@
 [ubuntu]
-x.x.x.x ansible_ssh_host=x.x.x.x ansible_ssh_user=ubuntu
+x.x.x.x ansible_ssh_host=x.x.x.x ansible_ssh_user=root

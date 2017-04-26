@@ -4,7 +4,7 @@
 
 1. 这个ansible playbook主要是为了强化Ubuntu14.04系统，应该也适用于debian 8 和ubuntu16.04，但是我没测试。
 2. 执行过程中会自动设置root和ubuntu用户的密码，密码设置参见变量说明章节。
-3. 执行完成完成完成后，会禁用root通过ssh登录。只能通过普通用户登录。
+3. **执行完成完成完成后，会禁用root通过ssh登录。只能通过普通用户登录。**
 4. 这个playbook是参见github上[cis-ubuntu-ansible](https://github.com/awailly/cis-ubuntu-ansible.git)
 
 ![http://media.giphy.com/media/7U1XfwZ94okRW/giphy.gif](http://media.giphy.com/media/7U1XfwZ94okRW/giphy.gif)
@@ -39,7 +39,3 @@ SSH password: 	# 输入ansible_ssh_user密码
 
 ## 其他
 执行后有一些是检查用的，最好将执行日志保存，然后仔细查阅。
-```
-脚本执行后，会禁用ssh的root登录，所以执行前请先设置好非root用户密码。
-```
-因为本次安全加固未涉及到ubuntu用户的密码修改，所以请事先设置好复杂密码。
